@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicación UDES | Experiencia Vocacional</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* === VARIABLES & RESET === */
+        :root {
+            --color-udes-blue: #005696;
+            --color-udes-green: #84bd00;
+            --color-udes-orange: #e06b20;
+            --bg-body: #050b14;
+            --bg-card: #0b172a;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-display: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: var(--font-body); 
+            background-color: var(--bg-body); 
+            color: var(--text-light); 
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* FORZAR TÍTULOS A MAYÚSCULAS */
+        h1, h2, h3, h4, .section-title {
+            text-transform: uppercase !important;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            position: relative;
+            padding: 120px 0 80px;
+            text-align: center;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 86, 150, 0.2), transparent 70%);
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span { color: var(--color-udes-green); }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* === SECCIÓN ROLES (ANIMACIONES ELITE) === */
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #ffffff;
+        }
+
+        .roles-section { padding: 80px 0; }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .role-card {
+            background-color: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: 1px solid rgba(255,255,255,0.05);
+            /* Animación magnética y fluida */
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 1;
+            /* CORRECCIÓN: Centrar texto */
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Decoración superior de la tarjeta */
+        .role-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-udes-blue), var(--color-udes-green), var(--color-udes-orange));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            transform-origin: left;
+        }
+
+        .role-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .role-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 20px rgba(132, 189, 0, 0.2);
+            border-color: var(--color-udes-green);
+            background-color: rgba(255, 255, 255, 0.05);
+            z-index: 10;
+        }
+
+        .role-card i {
+            font-size: 2.5rem;
+            color: var(--color-udes-green);
+            margin-bottom: 24px;
+            transition: all 0.4s ease;
+            /* Fondo circular para el icono */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(132, 189, 0, 0.15), rgba(132, 189, 0, 0.05));
+            border: 1px solid rgba(132, 189, 0, 0.3);
+        }
+
+        .role-card:hover i {
+            transform: scale(1.2) rotate(5deg);
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--color-udes-green), var(--color-udes-blue));
+            box-shadow: 0 0 30px rgba(132, 189, 0, 0.5);
+        }
+
+        .role-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .role-card p { font-size: 0.95rem; color: var(--text-muted); }
+
+        /* === SECCIÓN VIDEOS === */
+        .videos-section {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+        }
+
+        .video-wrapper:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7), 0 0 20px rgba(0, 86, 150, 0.4);
+            border-color: var(--color-udes-blue);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+
+        /* === SECCIÓN TEST === */
+        .quiz-section { padding: 100px 0; }
+
+        .quiz-card {
+            background-color: var(--bg-card);
+            border-radius: 24px;
+            padding: 50px;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-progress-line {
+            height: 4px;
+            background-color: #1e293b;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .quiz-progress-fill {
+            height: 100%;
+            background-color: var(--color-udes-orange);
+            width: 0%;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .quiz-card h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .quiz-card p {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .btn-orange {
+            background-color: var(--color-udes-orange);
+            color: #ffffff;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 25px rgba(224, 107, 32, 0.4);
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-orange:hover {
+            background-color: #f07b2b;
+            box-shadow: 0 10px 35px rgba(224, 107, 32, 0.6), 0 0 15px rgba(255,255,255,0.2);
+            transform: scale(1.05) translateY(-3px);
+        }
+
+        /* Opciones del Test Animadas */
+        .option-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background-color: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-light);
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+        }
+
+        .option-btn:hover {
+            transform: translateX(15px);
+            background-color: rgba(0, 86, 150, 0.2);
+            border-color: var(--color-udes-green);
+            box-shadow: -5px 0px 0px var(--color-udes-green); /* Acento lateral de impacto */
+            padding-left: 30px;
+        }
+
+        /* Tabla de Resultados */
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .results-table th, .results-table td {
+            padding: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .results-table th {
+            font-family: var(--font-display);
+            color: var(--color-udes-green);
+        }
+
+        .footer-cta { text-align: center; padding: 80px 0; }
+
+        @media (max-width: 768px) {
+            .quiz-card { padding: 30px 20px; }
+            .hero { padding: 80px 0 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <h1>TU VOZ ES EL <br><span>PRÓXIMO IMPACTO</span></h1>
+            <p>De la grabación a las redes sociales: imagina cómo tus ideas pueden convertirse en tu trabajo soñado. Únete a la UDES.</p>
+        </div>
+    </header>
+
+    <section class="roles-section">
+        <div class="container">
+            <h2 class="section-title">Elige tu camino profesional</h2>
+            <div class="roles-grid">
+                <div class="role-card">
+                    <i class="fas fa-camera"></i>
+                    <h3>Periodismo</h3>
+                    <p>Investiga a fondo, chequea fuentes y da voz a los que no la tienen.</p>
+                </div>
+                <div class="role-card">
+                    <i class="fas fa-mobile-screen"></i>
+                    <h3>Creador Digital</h3>
+                    <p>Estrategia, creatividad y responsabilidad para volverte viral con impacto.</p>
+                </div>
+                <div class="role-card">
+                    <i class="fas fa-microphone-lines"></i>
+                    <h3>Locutor de Radio</h3>
+                    <p>Crea atmósferas y conecta corazones a través de las ondas sonoras.</p>
+                </div>
+                <div class="role-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Comunicador Org.</h3>
+                    <p>Maneja crisis, cuida la imagen corporativa y construye confianza.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="videos-section">
+        <div class="container">
+            <h2 class="section-title">Inspiración Real</h2>
+            <div class="videos-grid">
+                <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/BhG9R4ZkF_Q" title="Experiencia UDES 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/O9RPKDPRFYU" title="Experiencia UDES 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/DuE_r15RJcc" title="Experiencia UDES 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quiz-section">
+        <div class="container">
+            <div class="quiz-card" id="quiz-container">
+                <div id="quiz-intro">
+                    <div class="quiz-progress-line"></div>
+                    <h2>Aptitud Vocacional UDES</h2>
+                    <p>Basado en las competencias oficiales del programa.</p>
+                    <button class="btn-orange" onclick="startQuiz()">INICIAR ANÁLISIS DE PERFIL</button>
+                </div>
+                
+                <div id="quiz-questions" style="display: none;">
+                    <div class="quiz-progress-line">
+                        <div class="quiz-progress-fill" id="progress-bar"></div>
+                    </div>
+                    <h2 id="question-text" style="font-size: 1.5rem; margin-bottom: 24px; line-height: 1.4;"></h2>
+                    <div id="options-container"></div>
+                </div>
+
+                <div id="quiz-results" style="display: none;">
+                    <h2 style="color: var(--color-udes-green); font-size: 3rem; text-align: center; margin-bottom: 10px;" id="score-percentage">0%</h2>
+                    <h3 style="text-align: center; margin-bottom: 30px; font-family: var(--font-display);">Compatibilidad de Perfil</h3>
+                    
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Pilar Evaluado</th>
+                                <th>Ajuste al Programa</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-cta">
+        <div class="container">
+            <h2 class="section-title" style="margin-bottom: 30px;">Empieza acá tu historia</h2>
+            <a href="https://bucaramanga.udes.edu.co/estudia/pregrados/comunicacion-social-y-periodismo" class="btn-orange">ÚNETE A COMUNICACIÓN SOCIAL</a>
+        </div>
+    </footer>
+
+    <script>
+        const questions = [
+            { q: "Ante un rumor viral...", a: "Investigo la fuente y contrasto datos.", b: "Lo comparto para ser el primero.", p: "Ética y Veracidad" },
+            { q: "En un conflicto social...", a: "Busco el diálogo de saberes y la paz.", b: "Tomo partido por el bando más popular.", p: "Mediación de Paz" },
+            { q: "Tu formato ideal es...", a: "Transmedia (Video, audio, redes y texto).", b: "Solo un tipo de formato tradicional.", p: "Narrativas Transmedia" },
+            { q: "Sobre la tecnología...", a: "La uso como estrategia para innovar.", b: "Me abruma y prefiero evitarla.", p: "Cultura Digital" },
+            { q: "¿Qué te mueve más?", a: "Resolver problemas de la comunidad.", b: "El reconocimiento personal.", p: "Impacto Social" },
+            { q: "Ante un tema complejo...", a: "Investigo el contexto histórico y político.", b: "Busco un resumen rápido sin contexto.", p: "Espíritu Investigativo" },
+            { q: "¿Cómo trabajas?", a: "Colaboro en equipos interdisciplinarios.", b: "Prefiero trabajar solo siempre.", p: "Trabajo en Equipo" },
+            { q: "Tu visión del mundo es...", a: "Como un ciudadano global responsable.", b: "Solo me interesa lo que pasa cerca.", p: "Ciudadanía Global" },
+            { q: "Si tienes una idea...", a: "La convierto en un proyecto emprendedor.", b: "Espero a que alguien me contrate.", p: "Emprendimiento" },
+            { q: "Al analizar medios...", a: "Evalúo su contenido de forma crítica.", b: "Acepto la información tal como viene.", p: "Pensamiento Crítico" }
+        ];
+
+        let currentQuestion = 0;
+        let scoreA = 0;
+        let userResults = [];
+
+        function startQuiz() {
+            document.getElementById('quiz-intro').style.display = 'none';
+            document.getElementById('quiz-questions').style.display = 'block';
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const qData = questions[currentQuestion];
+            document.getElementById('question-text').innerText = `${currentQuestion + 1}. ${qData.q}`;
+            
+            const progress = ((currentQuestion) / questions.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+
+            const optionsHTML = `
+                <button class="option-btn" onclick="selectOption('A')">${qData.a}</button>
+                <button class="option-btn" onclick="selectOption('B')">${qData.b}</button>
+            `;
+            document.getElementById('options-container').innerHTML = optionsHTML;
+        }
+
+        function selectOption(choice) {
+            const qData = questions[currentQuestion];
+            
+            if (choice === 'A') {
+                scoreA++;
+                userResults.push({ pilar: qData.p, status: "Alta Compatibilidad" });
+            } else {
+                userResults.push({ pilar: qData.p, status: "Área de Exploración" });
+            }
+
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-questions').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'block';
+            
+            const finalScore = (scoreA / questions.length) * 100;
+            document.getElementById('score-percentage').innerText = `${finalScore}%`;
+
+            let tableHTML = "";
+            userResults.forEach(res => {
+                tableHTML += `<tr><td>${res.pilar}</td><td>${res.status}</td></tr>`;
+            });
+            
+            document.getElementById('results-body').innerHTML = tableHTML;
+        }
+    </script>
+</body>
+</html>
