@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* === VARIABLES & RESET === */
         :root {
             --color-udes-blue: #005696;
             --color-udes-green: #84bd00;
@@ -37,7 +36,6 @@
             overflow-x: hidden;
         }
 
-        /* FORZAR TÍTULOS A MAYÚSCULAS */
         h1, h2, h3, h4, .section-title {
             text-transform: uppercase !important;
             letter-spacing: 1px;
@@ -50,7 +48,6 @@
             padding: 0 24px;
         }
 
-        /* === ANIMACIONES DE ENTRADA === */
         .fade-in-section {
             opacity: 0;
             transform: translateY(30px);
@@ -63,7 +60,6 @@
             transform: translateY(0);
         }
 
-        /* === HERO SECTION === */
         .hero {
             position: relative;
             padding: 120px 0 80px;
@@ -120,7 +116,6 @@
             margin: 0 auto 40px;
         }
 
-        /* === ESTADÍSTICAS ANIMADAS === */
         .stats-section {
             padding: 60px 0;
             background: linear-gradient(135deg, rgba(0, 86, 150, 0.15), rgba(132, 189, 0, 0.1));
@@ -128,7 +123,7 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             text-align: center;
         }
@@ -153,7 +148,6 @@
             letter-spacing: 1px;
         }
 
-        /* === SECCIÓN ROLES === */
         .section-title {
             font-family: var(--font-display);
             font-size: 2.5rem;
@@ -237,7 +231,6 @@
 
         .role-card p { font-size: 0.95rem; color: var(--text-muted); }
 
-        /* === SECCIÓN TESTIMONIOS === */
         .testimonials-section {
             padding: 100px 0;
             background-color: rgba(255, 255, 255, 0.02);
@@ -295,6 +288,8 @@
             font-family: var(--font-display);
             font-weight: 700;
             color: white;
+            font-size: 1rem;
+            flex-shrink: 0;
         }
 
         .testimonial-info h4 {
@@ -308,7 +303,6 @@
             color: var(--text-muted);
         }
 
-        /* === SECCIÓN VIDEOS (GALERÍA) === */
         .videos-section {
             padding: 100px 0;
             background-color: rgba(255, 255, 255, 0.02);
@@ -367,34 +361,6 @@
             border: none;
         }
 
-        /* Placeholder para lazy loading */
-        .video-placeholder {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(135deg, var(--bg-card), var(--bg-body));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .video-placeholder:hover {
-            background: linear-gradient(135deg, var(--color-udes-blue), var(--bg-card));
-        }
-
-        .video-placeholder i {
-            font-size: 4rem;
-            color: var(--color-udes-green);
-            transition: all 0.3s ease;
-        }
-
-        .video-placeholder:hover i {
-            transform: scale(1.2);
-            color: white;
-        }
-
         .video-label {
             position: absolute;
             bottom: 20px;
@@ -416,7 +382,6 @@
             transform: translateY(0);
         }
 
-        /* === SECCIÓN FAQ === */
         .faq-section {
             padding: 100px 0;
         }
@@ -471,7 +436,7 @@
         }
 
         .faq-item.active .faq-answer {
-            max-height: 200px;
+            max-height: 500px;
             padding: 0 25px 20px;
         }
 
@@ -480,7 +445,6 @@
             line-height: 1.7;
         }
 
-        /* === SECCIÓN CONTACTO/FORMULARIO === */
         .contact-section {
             padding: 100px 0;
             background-color: rgba(255, 255, 255, 0.02);
@@ -520,6 +484,11 @@
             transition: all 0.3s ease;
         }
 
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
@@ -528,12 +497,16 @@
             box-shadow: 0 0 0 3px rgba(132, 189, 0, 0.1);
         }
 
+        .form-group select option {
+            background-color: var(--bg-card);
+            color: var(--text-light);
+        }
+
         .form-group textarea {
             min-height: 120px;
             resize: vertical;
         }
 
-        /* === SECCIÓN TEST === */
         .quiz-section { padding: 100px 0; }
 
         .quiz-card {
@@ -667,7 +640,6 @@
 
         .footer-cta { text-align: center; padding: 80px 0; }
 
-        /* === NAVEGACIÓN STICKY === */
         .navbar {
             position: fixed;
             top: 0;
@@ -716,8 +688,7 @@
         }
 
         .navbar-links a {
-            color: var(--text-muted);
-            text-decoration: none;
+            color: var(--text-light);
             font-size: 0.95rem;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -746,7 +717,6 @@
             width: 100%;
         }
 
-        /* Burger Menu */
         .burger-menu {
             display: none;
             flex-direction: column;
@@ -775,7 +745,6 @@
             transform: rotate(-45deg) translate(5px, -5px);
         }
 
-        /* Mobile Menu */
         .mobile-menu {
             display: none;
             position: fixed;
@@ -812,7 +781,6 @@
             color: var(--color-udes-green);
         }
 
-        /* WhatsApp Float Button */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -840,7 +808,6 @@
             color: white;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .navbar-links {
                 display: none;
@@ -869,6 +836,14 @@
             .stat-number {
                 font-size: 2.5rem;
             }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         body {
@@ -882,7 +857,6 @@
 </head>
 <body>
 
-    <!-- Navegación Sticky -->
     <nav class="navbar" id="navbar" role="navigation" aria-label="Menú principal">
         <div class="navbar-container">
             <a href="#inicio" class="navbar-logo" aria-label="Ir al inicio">
@@ -904,7 +878,6 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menú móvil">
         <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
         <a href="#carreras" onclick="closeMobileMenu()">Carreras</a>
@@ -914,8 +887,7 @@
         <a href="#test" onclick="closeMobileMenu()">Test</a>
     </div>
 
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/573001234567" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp" title="Escríbenos por WhatsApp">
+    <a href="https://wa.me/573228019602" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp" title="Escríbenos por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -931,24 +903,19 @@
         </div>
     </header>
 
-    <!-- Estadísticas Animadas -->
     <section class="stats-section fade-in-section" id="estadisticas">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <span class="stat-number" data-target="1500">0</span>
-                    <span class="stat-label">Estudiantes Graduados</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="50">0</span>
+                    <span class="stat-number" data-target="22">0</span>
                     <span class="stat-label">Empresas Aliadas</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number" data-target="95">0</span>
+                    <span class="stat-number" data-target="90.6" data-decimal="true">0</span>
                     <span class="stat-label">% Empleabilidad</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number" data-target="20">0</span>
+                    <span class="stat-number" data-target="8">0</span>
                     <span class="stat-label">Años de Trayectoria</span>
                 </div>
             </div>
@@ -983,38 +950,37 @@
         </div>
     </section>
 
-    <!-- Testimonios -->
     <section class="testimonials-section fade-in-section" id="testimonios">
         <div class="container">
             <h2 class="section-title">Historias de Éxito</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"La UDES me dio las herramientas para crear contenido que realmente impacta. Hoy trabajo en un medio nacional"</p>
+                    <p class="testimonial-text">"La Universidad de Santander fue el punto de partida: como estudiante y representante, construí una red de contactos y experiencias dentro de mi carrera que hoy me permiten trabajar con una multinacional como EF Education First."</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">MR</div>
+                        <div class="testimonial-avatar">RB</div>
                         <div class="testimonial-info">
-                            <h4>María Rodríguez</h4>
-                            <span>Periodista - El Tiempo</span>
+                            <h4>Rosa Beatriz</h4>
+                            <span>EF Education First</span>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Gracias a la carrera pude desarrollar mi propia plataforma digital con más de 500K seguidores"</p>
+                    <p class="testimonial-text">"Más que una carrera, fue un proceso de formación humana, crítica y profesional. Descubrí mi pasión por contar historias con sentido y comunicar con estrategia. Hoy continúo creciendo en Europa con una maestría en Comunicación Estratégica, llevando siempre el sello UDES."</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">JC</div>
+                        <div class="testimonial-avatar">CG</div>
                         <div class="testimonial-info">
-                            <h4>Juan Carlos Peña</h4>
-                            <span>Creador Digital</span>
+                            <h4>Catalina Gonzales</h4>
+                            <span>Maestría en Europa</span>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"El enfoque en emprendimiento me permitió crear mi propia agencia de comunicación desde el semestre 6"</p>
+                    <p class="testimonial-text">"En la UDES aprendí a ser una profesional crítica, creativa y comprometida con la verdad. Aplicando herramientas como edición, redes sociales y redacción en mi rol en un hospital."</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">AL</div>
+                        <div class="testimonial-avatar">MD</div>
                         <div class="testimonial-info">
-                            <h4>Ana López</h4>
-                            <span>Fundadora - Creative Agency</span>
+                            <h4>María Alejandra Duarte</h4>
+                            <span>Periodista - Hospital</span>
                         </div>
                     </div>
                 </div>
@@ -1026,82 +992,126 @@
         <div class="container">
             <h2 class="section-title">Trabajos Reales de Nuestros Estudiantes</h2>
             <div class="videos-grid">
-                <div class="video-wrapper" data-video-id="BhG9R4ZkF_Q">
-                    <div class="video-placeholder" onclick="loadVideo(this)">
-                        <i class="fas fa-play"></i>
-                    </div>
+                <div class="video-wrapper">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/BhG9R4ZkF_Q?si=fG-iNQS7yqCwWaqB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     <span class="video-label">Documental</span>
                 </div>
 
-                <div class="video-wrapper" data-video-id="O9RPKDPRFYU">
-                    <div class="video-placeholder" onclick="loadVideo(this)">
-                        <i class="fas fa-play"></i>
-                    </div>
+                <div class="video-wrapper">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/f-EQLeVDOOo?si=35SRLB6iHNrPbETq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     <span class="video-label">Noticiero</span>
                 </div>
 
-                <div class="video-wrapper" data-video-id="DuE_r15RJcc">
-                    <div class="video-placeholder" onclick="loadVideo(this)">
-                        <i class="fas fa-play"></i>
-                    </div>
+                <div class="video-wrapper">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/O9RPKDPRFYU?si=fbufjnUL2oCPup6J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     <span class="video-label">Podcast</span>
                 </div>
-                <div class="video-wrapper" data-video-id="f-EQLeVDOOo">
-                    <div class="video-placeholder" onclick="loadVideo(this)">
-                        <i class="fas fa-play"></i>
-                    </div>
+                <div class="video-wrapper">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/DuE_r15RJcc?si=51cyI0L-NSp1LmCi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     <span class="video-label">Campaña Social</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
     <section class="faq-section fade-in-section" id="faq">
         <div class="container">
             <h2 class="section-title">Preguntas Frecuentes</h2>
             <div class="faq-container">
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        ¿Cuál es la duración de la carrera?
+                        ¿Cuál es el perfil del aspirante?
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>La carrera de Comunicación Social y Periodismo tiene una duración de 10 semestres (5 años), incluyendo práctica profesional.</p>
+                        <p>Debe ser ético, interesado en asuntos públicos, con habilidades en comunicación escrita/oral, manejo de información y pensamiento crítico.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        ¿Qué modalidades de estudio ofrecen?
+                        ¿Cuántos créditos requiere el programa?
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Ofrecemos modalidad presencial en nuestro campus principal, con horarios flexibles que permiten a los estudiantes desarrollar prácticas profesionales.</p>
+                        <p>129 créditos académicos para graduarse.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        ¿Cuáles son los requisitos de inscripción?
+                        ¿Cuáles son los requisitos para el título?
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Requiere haber completado el bachillerato, presentar el examen de admisión y asistir a la jornada de inducción. Más información en nuestra página de admisiones.</p>
+                        <p>Aprobar 129 créditos, promedio ≥3.2, trabajo de grado, práctica empresarial y certificaciones en inglés B1 e informática.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        ¿Hay oportunidades de empleo durante la carrera?
+                        ¿Cuál es el valor de la matrícula?
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Sí, tenemos convenios con medios de comunicación y empresas para prácticas remuneradas. El 95% de nuestros egresados secures empleo en menos de 6 meses.</p>
+                        <p>Alrededor de $6.235.700 por semestre en Bucaramanga (datos 2024, sujeto a cambios).</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Qué componentes incluye el plan de estudios?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Humanidades, fundamentación conceptual, expresión, investigación, tecnología, gestión, comunicación de paz y electivas.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Qué laboratorios y prácticas ofrece?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Laboratorios de fotografía, radio y TV desde el primer semestre, con convenios en medios como Canal TRO y Vanguardia.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Hay movilidad internacional?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, vía convenios internacionales y doble titulación con Universidad de Valencia (España).</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Cuáles son los campos laborales?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Periodismo digital, producción audiovisual, relaciones públicas, dirección de prensa en empresas/gobierno y emprendimiento.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Cuál es el proceso de admisión?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Inscripción en web, documentos, entrevista y pago de matrícula.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Qué hace único al programa?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Enfoque en narrativas transmedia, paz, cultura digital y competencias investigativas para cambio social.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
     <section class="contact-section fade-in-section" id="contacto">
         <div class="container">
             <h2 class="section-title">¿Listo para Inscribirte?</h2>
@@ -1183,7 +1193,6 @@
     </footer>
 
     <script>
-        // === NAVEGACIÓN STICKY ===
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -1193,7 +1202,6 @@
             }
         });
 
-        // Toggle Mobile Menu
         function toggleMobileMenu() {
             const burgerMenu = document.querySelector('.burger-menu');
             const mobileMenu = document.getElementById('mobileMenu');
@@ -1202,7 +1210,6 @@
             document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         }
 
-        // Close Mobile Menu
         function closeMobileMenu() {
             const burgerMenu = document.querySelector('.burger-menu');
             const mobileMenu = document.getElementById('mobileMenu');
@@ -1211,7 +1218,6 @@
             document.body.style.overflow = '';
         }
 
-        // === SMOOTH SCROLL FLUIDO ===
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1246,7 +1252,6 @@
             });
         });
 
-        // === INTERSECTION OBSERVER PARA ANIMACIONES ===
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -1258,7 +1263,6 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
                     
-                    // Si es la sección de stats, activar animación de números
                     if (entry.target.id === 'estadisticas') {
                         animateNumbers();
                     }
@@ -1270,20 +1274,28 @@
             observer.observe(section);
         });
 
-        // === ANIMACIÓN DE NÚMEROS ===
+        let animationStarted = false;
         function animateNumbers() {
+            if (animationStarted) return;
+            animationStarted = true;
+            
             document.querySelectorAll('.stat-number').forEach(num => {
-                const target = parseInt(num.getAttribute('data-target'));
+                const target = parseFloat(num.getAttribute('data-target'));
+                const isDecimal = num.getAttribute('data-decimal') === 'true';
                 const duration = 2000;
-                const startTime = null;
+                const startTime = performance.now();
                 
                 function updateNumber(currentTime) {
-                    if (startTime === null) startTime = currentTime;
                     const timeElapsed = currentTime - startTime;
                     const progress = Math.min(timeElapsed / duration, 1);
                     const easeOut = 1 - Math.pow(1 - progress, 3);
-                    const current = Math.floor(target * easeOut);
-                    num.textContent = current + (num.getAttribute('data-target') == '95' ? '%' : '+');
+                    let current = target * easeOut;
+                    
+                    if (isDecimal) {
+                        num.textContent = current.toFixed(1) + '%';
+                    } else {
+                        num.textContent = Math.floor(current) + (target > 10 ? '+' : '');
+                    }
                     
                     if (progress < 1) {
                         requestAnimationFrame(updateNumber);
@@ -1294,34 +1306,16 @@
             });
         }
 
-        // === LAZY LOADING DE VIDEOS ===
-        function loadVideo(wrapper) {
-            const videoId = wrapper.parentElement.getAttribute('data-video-id');
-            const iframe = document.createElement('iframe');
-            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-            iframe.title = "Video";
-            iframe.frameBorder = "0";
-            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-            iframe.allowFullscreen = true;
-            iframe.setAttribute('loading', 'lazy');
-            
-            wrapper.parentElement.innerHTML = '';
-            wrapper.parentElement.appendChild(iframe);
-        }
-
-        // === FAQ ACORDEÓN ===
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const item = button.parentElement;
                 const isActive = item.classList.contains('active');
                 
-                // Cerrar todos
                 document.querySelectorAll('.faq-item').forEach(i => {
                     i.classList.remove('active');
                     i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
                 });
                 
-                // Abrir el seleccionado
                 if (!isActive) {
                     item.classList.add('active');
                     button.setAttribute('aria-expanded', 'true');
@@ -1329,27 +1323,31 @@
             });
         });
 
-        // === FORMULARIO ===
         function handleSubmit(e) {
             e.preventDefault();
             const form = e.target;
             const data = new FormData(form);
             
-            // Simular envío (en producción,连接到 backend)
-            alert('¡Gracias! Tu información ha sido enviada. Nos contactaremos pronto.');
+            const nombre = data.get('nombre');
+            const telefono = data.get('telefono');
+            const mensaje = data.get('mensaje') || 'Quiero más información sobre el programa';
+            
+            const whatsappUrl = `https://wa.me/573228019602?text=Hola,%20me%20llamo%20${encodeURIComponent(nombre)}.%20Mi%20tel%C3%A9fono%20es%20${encodeURIComponent(telefono)}.%20${encodeURIComponent(mensaje)}`;
+            
+            window.open(whatsappUrl, '_blank');
+            
+            alert('¡Gracias! Serás redirigido a WhatsApp para completar tu solicitud.');
             form.reset();
             
-            // Guardar en localStorage
             const submissions = JSON.parse(localStorage.getItem('formSubmissions') || '[]');
             submissions.push({
-                nombre: data.get('nombre'),
-                email: data.get('email'),
+                nombre: nombre,
+                telefono: telefono,
                 fecha: new Date().toISOString()
             });
             localStorage.setItem('formSubmissions', JSON.stringify(submissions));
         }
 
-        // === QUIZ VOCACIONAL ===
         const questions = [
             { q: "Ante un rumor viral...", a: "Investigo la fuente y contrasto datos.", b: "Lo comparto para ser el primero.", p: "Ética y Veracidad" },
             { q: "En un conflicto social...", a: "Busco el diálogo de saberes y la paz.", b: "Tomo partido por el bando más popular.", p: "Mediación de Paz" },
@@ -1368,7 +1366,6 @@
         let userResults = [];
 
         function startQuiz() {
-            // Guardar en localStorage que inició el quiz
             localStorage.setItem('quizStarted', 'true');
             
             document.getElementById('quiz-intro').style.display = 'none';
@@ -1423,7 +1420,6 @@
             
             document.getElementById('results-body').innerHTML = tableHTML;
 
-            // Guardar resultados en localStorage
             localStorage.setItem('quizResults', JSON.stringify({
                 score: finalScore,
                 results: userResults,
@@ -1440,7 +1436,6 @@
             document.getElementById('progress-bar').style.width = '0%';
         }
 
-        // Verificar si hay resultados guardados
         window.addEventListener('load', () => {
             const savedResults = localStorage.getItem('quizResults');
             if (savedResults) {
@@ -1450,3 +1445,4 @@
     </script>
 </body>
 </html>
+
