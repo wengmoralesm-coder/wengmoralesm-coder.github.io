@@ -55,6 +55,38 @@
             padding: 120px 0 80px;
             text-align: center;
             background: radial-gradient(circle at 50% 0%, rgba(0, 86, 150, 0.2), transparent 70%);
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(5, 11, 20, 0.7) 0%,
+                rgba(5, 11, 20, 0.5) 50%,
+                rgba(5, 11, 20, 0.9) 100%
+            );
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
@@ -385,6 +417,10 @@
 <body>
 
     <header class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="assets/VideoPortada.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
         <div class="container">
             <h1>TU VOZ ES EL <br><span>PRÓXIMO IMPACTO</span></h1>
             <p>De la grabación a las redes sociales: imagina cómo tus ideas pueden convertirse en tu trabajo soñado. Únete a la UDES.</p>
